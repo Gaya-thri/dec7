@@ -270,10 +270,17 @@ console.log("   rotate an array by k times and return an array   ")
 console.log("1.Using Anonymous array");
 var result = function(arr1,k) {
     var arr = [];
-    for(i=arr1.length-k;i<arr1.length;i++) {
+    var t = 0;
+    if(k>arr1.length) {
+        t = k%arr1.length;
+    }
+    else {
+        t = k;
+    }
+    for(i=arr1.length-t;i<arr1.length;i++) {
         arr.push(arr1[i]);
     }
-     for(j=0;j<arr1.length-k;j++) {
+     for(j=0;j<arr1.length-t;j++) {
         arr.push(arr1[j]);
     }
    return arr;
@@ -285,10 +292,17 @@ console.log("2.Using iife");
 
 (function(arr1,k) {
     var arr = [];
-    for(i=arr1.length-k;i<arr1.length;i++) {
+    var t = 0;
+    if(k>arr1.length) {
+        t = k%arr1.length;
+    }
+    else {
+        t = k;
+    }
+    for(i=arr1.length-t;i<arr1.length;i++) {
         arr.push(arr1[i]);
     }
-     for(j=0;j<arr1.length-k;j++) {
+     for(j=0;j<arr1.length-t;j++) {
         arr.push(arr1[j]);
     }
    console.log(arr)
